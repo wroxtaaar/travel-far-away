@@ -133,6 +133,15 @@ function Item({ item, onDeleteItem, onCheckedItem }) {
 }
 
 function Stats({items}) {
+
+    if(!items.length) 
+      return (
+        <footer className="stats"> 
+        
+        <em>Start adding somme items to your list</em>
+        </footer>
+      );
+
   const numItems = items.length;
   const numPacked = items.filter((item) => item.packed).length;
   const packedPercent = Math.round(numPacked/numItems * 100) ;
